@@ -1,8 +1,100 @@
 # Storebadge
 
-App Store, Google Play, and Microsoft Store badges in multiple languages exported as SVG.
+App Store, Google Play, and Microsoft Store badges in multiple languages — available as raw SVG/PNG files **and** as an npm package with a fully-typed JavaScript API.
+
+[![npm](https://img.shields.io/npm/v/storebadge)](https://www.npmjs.com/package/@mynameiskazim/storebadge)
 
 - [SVG files](https://github.com/mynameiskazim/storebadge/tree/main/badges)
+
+---
+
+## Installation
+
+```bash
+npm install storebadge
+# or
+yarn add storebadge
+# or
+pnpm add storebadge
+```
+
+---
+
+## JavaScript / TypeScript API
+
+### Get a badge URL (CDN)
+
+```ts
+import { appStoreBadgeUrl, googlePlayBadgeUrl, microsoftBadgeUrl } from 'storebadge';
+
+appStoreBadgeUrl('en', 'black');
+// → 'https://cdn.jsdelivr.net/npm/storebadge/badges/appstore/appstore-black-en.svg'
+
+googlePlayBadgeUrl('tr');
+// → 'https://cdn.jsdelivr.net/npm/storebadge/badges/googleplay/googleplay-tr.svg'
+
+googlePlayBadgeUrl('tr', 'png');
+// → 'https://cdn.jsdelivr.net/npm/storebadge/badges/googleplay/googleplay-tr.png'
+
+microsoftBadgeUrl('en-us', 'dark');
+// → 'https://cdn.jsdelivr.net/npm/storebadge/badges/microsoft/en-us-dark.svg'
+```
+
+### Get a local file path (relative to package root)
+
+```ts
+import { appStoreBadgePath, googlePlayBadgePath, microsoftBadgePath } from 'storebadge';
+
+appStoreBadgePath('de', 'white');
+// → 'badges/appstore/appstore-white-de.svg'
+
+googlePlayBadgePath('de');
+// → 'badges/googleplay/googleplay-de.svg'
+
+microsoftBadgePath('de', 'light');
+// → 'badges/microsoft/de-light.svg'
+```
+
+### Grouped API
+
+```ts
+import { badges } from 'storebadge';
+
+badges.appStore.url('fr', 'black');
+badges.googlePlay.url('fr');
+badges.microsoft.url('fr', 'dark');
+```
+
+### Custom CDN / self-hosted
+
+```ts
+import { setBaseUrl, appStoreBadgeUrl } from 'storebadge';
+
+setBaseUrl('https://cdn.example.com/storebadge');
+appStoreBadgeUrl('en', 'black');
+// → 'https://cdn.example.com/storebadge/appstore/appstore-black-en.svg'
+```
+
+### React example
+
+```tsx
+import { appStoreBadgeUrl, googlePlayBadgeUrl } from 'storebadge';
+
+export function AppBadges({ locale = 'en' }) {
+  return (
+    <div style={{ display: 'flex', gap: 12 }}>
+      <a href="https://apps.apple.com/app/your-app">
+        <img src={appStoreBadgeUrl(locale, 'black')} alt="Download on the App Store" height={40} />
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.your.app">
+        <img src={googlePlayBadgeUrl(locale)} alt="Get it on Google Play" height={40} />
+      </a>
+    </div>
+  );
+}
+```
+
+---
 
 ## Notes
 
@@ -257,7 +349,7 @@ Embed all three app store badges in your website:
   <!-- App Store -->
   <a href="https://apps.apple.com/app/your-app">
     <img 
-      src="https://github.com/pioug/google-play-badges/blob/main/svg/af.svg" 
+      src=https://github.com/mynameiskazim/storebadge/raw/master/badges/appstore/appstore-black-en.svg" 
       alt="Download on the App Store" 
       height="40" 
     />
@@ -266,7 +358,7 @@ Embed all three app store badges in your website:
   <!-- Google Play -->
   <a href="https://play.google.com/store/apps/details?id=com.your.app">
     <img 
-      src="badges/googleplay/googleplay-en.svg" 
+      src="https://github.com/mynameiskazim/storebadge/raw/master/badges/googleplay/googleplay-en.svg" 
       alt="Get it on Google Play" 
       height="40" 
     />
@@ -275,7 +367,7 @@ Embed all three app store badges in your website:
   <!-- Microsoft Store -->
   <a href="https://www.microsoft.com/store/apps/YOUR_APP_ID">
     <img 
-      src="badges/microsoft/en-us-dark.svg" 
+      src="https://github.com/mynameiskazim/storebadge/raw/master/badges/microsoft/en-us-dark.svg" 
       alt="Get from Microsoft Store" 
       height="40" 
     />

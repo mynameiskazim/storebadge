@@ -1,0 +1,44 @@
+{
+  "name": "@mynameiskazim/storebadge",
+  "version": "1.0.0",
+  "description": "App Store, Google Play, and Microsoft Store badges in multiple languages — SVG & PNG assets with a typed JavaScript API",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "badges"
+  ],
+  "scripts": {
+    "build": "node_modules\\.bin\\tsup.cmd src/index.ts --format cjs,esm --dts --clean",
+    "dev": "node_modules\\.bin\\tsup.cmd src/index.ts --format cjs,esm --dts --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "app-store",
+    "google-play",
+    "microsoft-store",
+    "badge",
+    "svg",
+    "i18n",
+    "localization"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    },
+    "./badges/*": "./badges/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mynameiskazim/storebadge"
+  }
+}
