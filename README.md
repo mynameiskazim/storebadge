@@ -28,16 +28,16 @@ pnpm add storebadge
 import { appStoreBadgeUrl, googlePlayBadgeUrl, microsoftBadgeUrl } from 'storebadge';
 
 appStoreBadgeUrl('en', 'black');
-// → 'https://cdn.jsdelivr.net/npm/storebadge/badges/appstore/appstore-black-en.svg'
+// → 'https://cdn.jsdelivr.net/gh/mynameiskazim/storebadge/badges/appstore/appstore-black-en.svg'
 
 googlePlayBadgeUrl('tr');
-// → 'https://cdn.jsdelivr.net/npm/storebadge/badges/googleplay/googleplay-tr.svg'
+// → 'https://cdn.jsdelivr.net/gh/mynameiskazim/storebadge/badges/googleplay/googleplay-tr.svg'
 
 googlePlayBadgeUrl('tr', 'png');
-// → 'https://cdn.jsdelivr.net/npm/storebadge/badges/googleplay/googleplay-tr.png'
+// → 'https://cdn.jsdelivr.net/gh/mynameiskazim/storebadge/badges/googleplay/googleplay-tr.png'
 
 microsoftBadgeUrl('en-us', 'dark');
-// → 'https://cdn.jsdelivr.net/npm/storebadge/badges/microsoft/en-us-dark.svg'
+// → 'https://cdn.jsdelivr.net/gh/mynameiskazim/storebadge/badges/microsoft/en-us-dark.svg'
 ```
 
 ### Get a local file path (relative to package root)

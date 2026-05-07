@@ -52,7 +52,7 @@ export type MicrosoftTheme = 'dark' | 'light';
  * import { setBaseUrl } from 'storebadge';
  * setBaseUrl('https://cdn.example.com/storebadge');
  */
-let _baseUrl = 'https://cdn.jsdelivr.net/npm/storebadge/badges';
+let _baseUrl = 'https://cdn.jsdelivr.net/gh/mynameiskazim/storebadge/badges';
 
 export function setBaseUrl(url: string): void {
   _baseUrl = url.replace(/\/$/, '');
@@ -113,7 +113,7 @@ export function microsoftBadgePath(
  *
  * @example
  * appStoreBadgeUrl('tr', 'black')
- * // → 'https://cdn.jsdelivr.net/npm/storebadge/badges/appstore/appstore-black-tr.svg'
+ * // → 'https://cdn.jsdelivr.net/gh/mynameiskazim/storebadge/badges/appstore/appstore-black-tr.svg'
  */
 export function appStoreBadgeUrl(
   locale: AppStoreLocale,
